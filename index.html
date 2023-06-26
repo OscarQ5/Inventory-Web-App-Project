@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Car Inventory</title>
+</head>
+<body>
+    <h1>Car Inventory</h1>
+    <form id="add-form">
+        <div class="input-container">
+        <label>
+            Name:<br /><input id="car-info" type="text" placeholder="Car name..."/><br />
+        </label>
+        <label for="url">Image URL:</label><br />
+        <input type="url" id="url" name="url"><br />
+        <label>
+            Price:<br /><input id="car-info" type="number" min="0" max="150000" placeholder="Car price..."/><br />
+        </label>
+        <label>
+            In Stock:
+            <br />
+            <select id="car-instock" name="Instock">
+              <option>-- Select --</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <br />
+            <br />
+        </label>
+        <button type="submit">Submit</button>
+        </div>
+    </form>  
+</body>
+</html>
