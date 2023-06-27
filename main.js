@@ -45,6 +45,15 @@ inputElement.forEach(input => input.style.width = desiredWidth)
         const fuelElement = document.createElement("p");
         fuelElement.textContent = `Fuel Type: ${car.fuelType}`;
         carItem.appendChild(fuelElement);
+
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", () => {
+        carListContainer.removeChild(carItem);
+        });
+
+        carItem.appendChild(removeButton);
+
         carListContainer.appendChild(carItem);
     });
  }
