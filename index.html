@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="main.js"></script>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
     <title>Car Inventory</title>
 </head>
+
 <body>
     <header>
-    <h1>Wheel Wearhouse</h1>
+        <h1>Wheel Wearhouse</h1>
     </header>
     <div id="car-list"></div>
     <form id="add-form">
         <div class="input-container">
-        <label>
-            Name:<br /><input id="car-name" type="text" placeholder="Car name..."/><br />
-        </label>
-        <label for="url">Image URL:</label><br />
-        <input type="url" id="url" name="url"><br />
-        <label>
-            Price:<br /><input id="car-price" type="number" min="0" max="150000" placeholder="Car price..."/><br />
-        </label>
-        <label>
-            In Stock:
-            <br />
-            <select id="car-instock" name="Instock">
-              <option>-- Select --</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-            <br />
-            <br />
-        </label>
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
+            <label>
+                Name:<br /><input id="car-name" type="text" placeholder="Car name..." /><br />
+            </label>
+            <label for="url">Image URL:</label><br />
+            <input type="url" id="url" name="url"><br />
+            <label>
+                Price:<br /><input id="car-price" type="number" min="0" max="150000" placeholder="Car price..." /><br />
+            </label>
+            <label>
+                Availability:
+                <br />
+                <select id="car-instock" name="Instock">
+                    <option>-- Select --</option>
+                    <option value="In Stock">In Stock</option>
+                    <option value="Out of Stock">Out of Stock</option>
+                </select>
+                <br />
+                <br />
+            </label>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
         </div>
-    </form>  
+    </form>
 </body>
+
 </html>

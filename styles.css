@@ -3,19 +3,19 @@ body {
     grid-template-columns: auto 1fr;
     grid-gap: 20px;
 }
-  
+
 #car-list {
     grid-column: 1;
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 100px;
 }
-  
+
 #add-form {
     grid-column: 4;
     padding: 100px;
 }
-  
+
 .car-item {
     border: 1px solid #ccc;
     padding: 10px;
@@ -24,4 +24,20 @@ body {
 header {
     text-align: center;
     grid-column: 2;
+}
+
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #car-list {
+        order: 1;
+        min-width: 250px;
+    }
+
+    #add-form {
+        order: 2;
+    }
 }
