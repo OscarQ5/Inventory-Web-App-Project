@@ -1,9 +1,11 @@
 body {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-gap: 20px;
     background-image: url(https://wallpaperaccess.com/full/4677568.jpg);
     background-size: contain;
+    min-height: 100vh;
 }
 
 #car-list {
@@ -33,6 +35,12 @@ header {
     text-align: center;
     grid-column: 2;
     color: crimson;
+}
+
+footer {
+    grid-column: 2;
+    grid-row: 3;
+    color: darkred;
 }
 
 @media (max-width: 768px) {

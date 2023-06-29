@@ -86,13 +86,12 @@ function handleFormSubmit(event) {
     const fuel = fuelTypeInput.value;
     const imgUrl = imageInput.value;
 
-    // Perform validation checks
     const errors = [];
     if (name.length < 3) {
         errors.push("Name should be at least 3 characters long");
     }
     if (isNaN(price) || price <= 0) {
-        errors.push("Price should be a positive number");
+        errors.push("Price should be larger than 0");
     }
     if (stock === "-- Select --") {
         errors.push("Please select the stock status");
@@ -111,7 +110,7 @@ function handleFormSubmit(event) {
         const newResource = {
             name: name,
             price: price,
-            inStock: stock === "Yes",
+            inStock: stock,
             color: color,
             year: year,
             fuelType: fuel,
