@@ -62,3 +62,113 @@ const carList = () => {
     });
 }
 carList();
+
+const form = document.getElementById("add-form");
+const carListContainer = document.getElementById("car-list");
+form.addEventListener("submit", handleFormSubmit);
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const nameInput = document.getElementById("car-name");
+    const priceInput = document.getElementById("car-price");
+    const stockInput = document.getElementById("car-instock");
+    const colorInput = document.getElementById("car-color");
+    const yearInput = document.getElementById("car-year");
+    const fuelTypeInput = document.getElementById("car-fuel-type");
+    const imageInput = document.getElementById("url")
+
+    const name = nameInput.value.trim();
+    const price = parseFloat(priceInput.value);
+    const stock = stockInput.value;
+    const color = colorInput.value;
+    const year = parseFloat(yearInput.value);
+    const fuel = fuelTypeInput.value;
+    const imgUrl = imageInput.value;
+
+    // Perform validation checks
+    const errors = [];
+    if (name.length < 3) {
+        errors.push("Name should be at least 3 characters long");
+    }
+    if (isNaN(price) || price <= 0) {
+        errors.push("Price should be a positive number");
+    }
+    if (stock === "-- Select --") {
+        errors.push("Please select the stock status");
+    }
+
+    const errorContainer = document.getElementById("error-container");
+    errorContainer.innerHTML = "";
+
+    if (errors.length > 0) {
+        errors.forEach((error) => {
+            const errorElement = document.createElement("p");
+            errorElement.textContent = error;
+            errorContainer.appendChild(errorElement);
+        });
+    } else {
+        const newResource = {
+            name: name,
+            price: price,
+            inStock: stock === "Yes",
+            color: color,
+            year: year,
+            fuelType: fuel,
+            imageUrl: imgUrl,
+        };
+
+        carListContainer.prepend(createResourceElement(newResource));
+
+        form.reset();
+    }
+}
+
+function createResourceElement(resource) {
+    const carItem = document.createElement("div");
+    carItem.classList.add("car-item");
+
+    const imageElement = document.createElement("img");
+    imageElement.style.width = "200px";
+    imageElement.style.height = "100px";
+    imageElement.src = resource.imageUrl;
+    carItem.appendChild(imageElement);
+
+    const nameElement = document.createElement("h3");
+    nameElement.textContent = resource.name;
+    carItem.appendChild(nameElement);
+
+    const priceElement = document.createElement("p");
+    priceElement.textContent = `Price: $${(resource.price).toFixed(2)}`;
+    carItem.appendChild(priceElement);
+
+    const stockElement = document.createElement("p");
+    stockElement.textContent = resource.inStock ? "In Stock" : "Out of Stock";
+    stockElement.addEventListener("click", () => {
+        resource.inStock = !resource.inStock;
+        stockElement.textContent = resource.inStock ? "In Stock" : "Out of Stock";
+    });
+    carItem.appendChild(stockElement);
+
+    const colorElement = document.createElement("p");
+    colorElement.textContent = `Color: ${resource.color}`;
+    carItem.appendChild(colorElement);
+
+    const yearElement = document.createElement("p");
+    yearElement.textContent = `Year: ${resource.year}`;
+    carItem.appendChild(yearElement);
+
+    const fuelElement = document.createElement("p");
+    fuelElement.textContent = `Fuel Type: ${resource.fuelType}`;
+    carItem.appendChild(fuelElement);
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+        carListContainer.removeChild(carItem);
+    });
+
+    carItem.appendChild(removeButton);
+
+    return carItem;
+};
