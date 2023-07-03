@@ -96,6 +96,15 @@ function handleFormSubmit(event) {
     if (stock === "-- Select --") {
         errors.push("Please select the stock status");
     }
+    if (isNaN(year) || year <= 0) {
+        errors.push("Please enter car year");
+    }
+    if (color === "") {
+        errors.push("Please enter car color") 
+    } 
+    if (fuel === "") {
+        errors.push("Please enter fuel type")
+    }
 
     const errorContainer = document.getElementById("error-container");
     errorContainer.innerHTML = "";
@@ -130,7 +139,7 @@ function createResourceElement(resource) {
     const imageElement = document.createElement("img");
     imageElement.style.width = "200px";
     imageElement.style.height = "100px";
-    imageElement.src = resource.imageUrl;
+    imageElement.src = resource.imageUrl || "/Users/oscarquintanilla/Git/Module 2/Inventory_Web_App_Project/assets/car-blk:wht-photo.jpeg";
     carItem.appendChild(imageElement);
 
     const nameElement = document.createElement("h3");

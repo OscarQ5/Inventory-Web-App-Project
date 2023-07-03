@@ -35,13 +35,15 @@ body {
 header {
     grid-column: 2;
     color: crimson;
+    font-weight: bold;
+    font-style: italic;
     justify-content: center;
 }
 
 footer {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 3;
-    color: darkred;
+    color:darksalmon;
     font-weight: bold;
 }
 
@@ -63,6 +65,16 @@ footer {
     footer {
         order: 3;
     }
+}
+
+input {
+    text-align: center;
+}
+
+#error-container {
+    background-color:red;
+    font-weight: bolder;
+    font-style: oblique;
 }
 
 .glow-on-hover {
